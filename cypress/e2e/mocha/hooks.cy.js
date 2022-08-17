@@ -62,6 +62,12 @@ describe('[' + new Date().toLocaleString() + '] testes do site iterasys', () => 
 
         it('meu sexto teste', () => {
             cy.log('sexto teste')
+            let pasta = 'cypress/fixtures'
+
+            cy.task('contaArquivos', pasta).then((count) => { 
+                cy.task('log', 'Quantidade de arquivos na pasta(' + pasta + '): ' + count)
+            })
+            cy.task('log', 'Fim da execução: ' + new Date().toLocaleString())
         })
     })
 })
